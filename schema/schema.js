@@ -12,7 +12,8 @@ const { GraphQLObjectType,
         GraphQLSchema,
         GraphQLID,
         GraphQLInt,
-        GraphQLList  } = graphql
+        GraphQLList,
+        GraphQLNonNull  } = graphql
 
 
 const BusType = new GraphQLObjectType({
@@ -100,7 +101,7 @@ const Mutation = new GraphQLObjectType({
     fields:{
         addBus:{
             type:BusType,
-            args:{name:{type:GraphQLString},depart_time:{type:GraphQLInt},terminalId:{type:GraphQLID}},
+            args:{name:{type: new GraphQLNonNull(GraphQLString)},depart_time:{type:new GraphQLNonNull(GraphQLInt)},terminalId:{type:new GraphQLNonNull(GraphQLID)}},
             resolve(parent,{name,depart_time,terminalId}){
                 let bus = new Bus({
                     name,
@@ -114,7 +115,7 @@ const Mutation = new GraphQLObjectType({
 
         addTerminal:{
             type:TerminalType,
-            args:{name:{type:GraphQLString},number:{type:GraphQLString},location:{type:GraphQLString}},
+            args:{name:{type:new GraphQLNonNull(GraphQLString)},number:{type: new GraphQLNonNull(GraphQLString)},location:{type:new GraphQLNonNull(GraphQLString)}},
             resolve(parent,{name,number,location}){
                 let terminal = new Terminal({
                     name,
