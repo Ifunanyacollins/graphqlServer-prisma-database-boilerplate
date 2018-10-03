@@ -4,10 +4,11 @@ const schema = require('./schema/schema');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express()
+const port = process.env.PORT || 4000;
 
 
 
-mongoose.connect("mongodb://collins:collins123@ds121753.mlab.com:21753/busterminal").then((res)=>{
+mongoose.connect(process.env.dataBase).then((res)=>{
   console.log('connected to database')
 }).catch((error)=>{
     console.log(error)
@@ -24,6 +25,8 @@ app.use('/hook',graphqlHTTP({
 
 
 
-app.listen(4000,()=>{
+
+
+app.listen(port,()=>{
     console.log('we are live on 4000')
 })
