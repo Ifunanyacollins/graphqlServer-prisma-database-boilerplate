@@ -18,6 +18,7 @@ const { GraphQLObjectType,
 const BusType = new GraphQLObjectType({
     name:'Bus',
     fields:()=>({
+        id:{type:GraphQLID},
         name:{type:GraphQLString},
         depart_time:{type:GraphQLInt},
 
@@ -37,6 +38,7 @@ const BusType = new GraphQLObjectType({
 const TerminalType = new GraphQLObjectType({
     name:'Terminal',
     fields:()=>({
+        id:{type:GraphQLID},
         number:{type:GraphQLString } ,
         name:{type:GraphQLString},
         location:{type:GraphQLString},
