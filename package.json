@@ -2,14 +2,14 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "engines": {
     "node": "8.9.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
-  "author": "",
+  "author": "collins ifunanya",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.4",
