@@ -15,7 +15,7 @@ mongoose.connect("mongodb://collins:collins123@ds121753.mlab.com:21753/bustermin
 })
 
 
-app.use('/ulo',graphqlHTTP({
+app.use('/hook',graphqlHTTP({
     schema,
     graphiql:true
 }))
