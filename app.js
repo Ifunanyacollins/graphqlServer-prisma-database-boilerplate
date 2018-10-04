@@ -16,10 +16,19 @@ mongoose.connect(process.env.dataBase).then((res)=>{
 })
 
 
+app.set('view engine', 'ejs');
+
+app.use(express.static(__dirname + '/public'));
 app.use('/hook',graphqlHTTP({
     schema,
     graphiql:true
 }))
+
+app.get('/', function(req, res) {
+    res.render('index');
+});
+
+
 
 
 
