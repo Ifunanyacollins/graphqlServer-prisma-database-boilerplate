@@ -1,0 +1,30 @@
+#import Link from "./generated/prisma.graphql" 
+ 
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  links: [Link!]!
+}
+
+ type Query {
+     info:String!
+     feed:[Link!]!
+     link(id:ID!):Link
+ }
+
+
+type Mutation{
+    post(url:String!,description:String!): Link!
+    updatepost(id:ID!,url:String,description:String): Link
+    deletepost(id:ID!):Link
+    signup(email: String!, password: String!, name: String!): AuthPayload
+    login(email: String!, password: String!): AuthPayload
+}
+
